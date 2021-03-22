@@ -22,7 +22,7 @@ let categoryStorage = {
         }
 
         try {
-            const res = await Category.findOne({ id: id });
+            const res = await Category.findOne({ _id: id });
             return res;
         } catch (error) {
             throw new Error(error.message);
@@ -48,7 +48,7 @@ let categoryStorage = {
         }
 
         try {
-            let category = await Category.findOne({ id: id });
+            let category = await Category.findOne({ _id: id });
             category.name = data.name;
             const res = await category.save();
             return res.id;
@@ -63,7 +63,7 @@ let categoryStorage = {
         }
 
         try {
-            await Category.findOneAndDelete({ id: id });
+            await Category.findOneAndDelete({ _id: id });
             return;
         } catch (error) {
             throw new Error(error.message);

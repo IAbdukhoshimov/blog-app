@@ -23,10 +23,16 @@ let postStorage = {
         }
 
         try {
-            const res = await Post.findOne({ id: id }).populate({
-                path: "category",
-                model: "Category"
-            });
+            const res = await Post.findOne({ _id: id })
+                .populate({
+                    path: "category",
+                    model: "Category"
+                })
+                .populate({
+                    path: "tags",
+                    model: "Tag"
+                });
+
             return res;
         } catch (error) {
             throw new Error(error.message);
