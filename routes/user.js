@@ -28,7 +28,23 @@ router.get("/", async (req, res) => {
     logger.info("GET user request");
 
     try {
-        const response = await userStorage.getUser(req.body);
+        const response = await userStorage.getAllUser();
+        return res.status(200).send(response);
+    } catch (error) {
+        logger.error("Error while creating a user", {
+            fucntion: "router.post.user",
+            error: error
+        });
+
+        return res.status(500).send({ error: error.message });
+    }
+});
+
+router.get("/:id", async (req, res) => {
+    logger.info("GET user request");
+
+    try {
+        const response = await userStorage.getUser(req.params.id);
         return res.status(200).send(response);
     } catch (error) {
         logger.error("Error while creating a user", {

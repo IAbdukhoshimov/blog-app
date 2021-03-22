@@ -27,13 +27,22 @@ let userStorage = {
         }
     },
 
-    getUser: async (data) => {
-        if (!data.id) {
+    getAllUser: async () => {
+        try {
+            const response = await User.find();
+            return response;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    getUser: async (id) => {
+        if (!id) {
             throw new Error("id is required to get user");
         }
 
         try {
-            const user = await User.findOne({ id: data.id });
+            const user = await User.findOne({ id: id });
             return user;
         } catch (error) {
             throw new Error(error.message);
