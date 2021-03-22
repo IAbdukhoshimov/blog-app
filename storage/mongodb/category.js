@@ -22,7 +22,7 @@ let categoryStorage = {
         }
 
         try {
-            const res = await Category.findOne({ id: id }).select(["-_id"]);
+            const res = await Category.findOne({ id: id });
             return res;
         } catch (error) {
             throw new Error(error.message);
@@ -31,7 +31,7 @@ let categoryStorage = {
 
     getAllCategorys: async () => {
         try {
-            const res = await Category.find().select(["-_id"]);
+            const res = await Category.find();
             return res;
         } catch (error) {
             throw new Error(error.message);

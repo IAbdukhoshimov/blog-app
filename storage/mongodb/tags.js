@@ -22,7 +22,7 @@ let tagStorage = {
         }
 
         try {
-            const res = await Tag.findOne({ id: id }).select(["-_id"]);
+            const res = await Tag.findOne({ id: id });
             return res;
         } catch (error) {
             throw new Error(error.message);
@@ -31,7 +31,7 @@ let tagStorage = {
 
     getAllTags: async () => {
         try {
-            const res = await Tag.find().select(["-_id"]);
+            const res = await Tag.find();
             return res;
         } catch (error) {
             throw new Error(error.message);

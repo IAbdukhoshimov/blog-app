@@ -6,7 +6,7 @@ const bycrypt = require("bcrypt");
 const SALT_FACTOR = 10;
 
 let UserSchema = new Schema({
-    id: {
+    _id: {
         type: String,
         default: uuidv4()
     },
