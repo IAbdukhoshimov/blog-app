@@ -16,7 +16,10 @@ function main() {
         // "@" +
         cfg.mongoHost +
         ":" +
-        cfg.mongoPort;
+        cfg.mongoPort +
+        "/" +
+        cfg.mongoDatabase;
+
     logger.info("Connecting to db: " + mongoDBUrl);
 
     mongoose

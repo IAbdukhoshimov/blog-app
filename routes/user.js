@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 
     try {
         const response = await userStorage.createUser(req.body);
-        return res.send(response);
+        return res.send({ id: response });
     } catch (error) {
         logger.error("Error while creating a user", {
             fucntion: "router.post.user",
