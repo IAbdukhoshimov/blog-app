@@ -60,7 +60,7 @@ let userStorage = {
         }
 
         try {
-            const userDb = await User.findOne({ id: id }, { password: -1 });
+            const userDb = await User.findOne({ id: id });
             userDb.firstname = value.firstname;
             userDb.lastname = value.lastname;
             userDb.email = value.email;
