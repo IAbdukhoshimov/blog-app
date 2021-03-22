@@ -5,6 +5,7 @@ const express = require("express");
 
 // routes
 const userRoute = require("./routes/user");
+const authRoute = require("./routes/auth");
 
 function main() {
     logger.info("Main function is running...");
@@ -44,6 +45,7 @@ function main() {
 
     // Routers
     app.use("/users", userRoute);
+    app.use("/auth", authRoute);
 
     app.listen(cfg.HTTPPort, () => {
         logger.info(`Express server is running on PORT: ${cfg.HTTPPort}`);
