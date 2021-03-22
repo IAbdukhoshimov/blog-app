@@ -7,8 +7,8 @@ let categoryStorage = {
         }
 
         try {
-            const Category = new Category({ name: data.name });
-            const res = await Category.save();
+            const categroy = new Category({ name: data.name });
+            const res = await categroy.save();
 
             return res.id;
         } catch (error) {
@@ -48,9 +48,9 @@ let categoryStorage = {
         }
 
         try {
-            let Category = await Category.findOne({ id: id });
-            Category.name = data.name;
-            const res = await Category.save();
+            let category = await Category.findOne({ id: id });
+            category.name = data.name;
+            const res = await category.save();
             return res.id;
         } catch (error) {
             throw new Error(error.message);
