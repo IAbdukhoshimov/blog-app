@@ -11,6 +11,10 @@ let tagStorage = {
         }
 
         try {
+            const tag = new Tag({ name: data.name });
+            const res = await tag.save();
+
+            return res.id;
         } catch (error) {
             throw new Error(error.message);
         }
@@ -21,26 +25,18 @@ let tagStorage = {
             throw new Error("id is required");
         }
 
-        if (!data.name) {
-            throw new Error("name is required to create tag");
-        }
-
         try {
+            const res = await Tag.findOne({ id: id }).select(["-_id"]);
+            return res;
         } catch (error) {
             throw new Error(error.message);
         }
     },
 
     getAllTags: async () => {
-        if (!id) {
-            throw new Error("id is required");
-        }
-
-        if (!data.name) {
-            throw new Error("name is required to create tag");
-        }
-
         try {
+            const res = await Tag.find().select(["-_id"]);
+            return res;
         } catch (error) {
             throw new Error(error.message);
         }
@@ -56,6 +52,10 @@ let tagStorage = {
         }
 
         try {
+            let tag = await Tag.findOne({ id: id });
+            tag.name = data.name;
+            const res = await tag.save();
+            return res.id;
         } catch (error) {
             throw new Error(error.message);
         }
