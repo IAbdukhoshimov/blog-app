@@ -26,6 +26,52 @@ let userStorage = {
             throw new Error(error.message);
         }
     },
+
+    getUser: async (data) => {
+        if (!data.id) {
+            throw new Error("id is required to get user");
+        }
+
+        try {
+            const user = await User.findOne({ id: data.id });
+            return user;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    updateUser: async (id, data) => {
+        const { value, error } = await UserValidator.validate(data);
+        if (error) {
+            throw new Error(error.message);
+        }
+
+        try {
+            const userDb = await User.findOne({ id: id }, { password: -1 });
+            userDb.firstname = value.firstname;
+            userDb.lastname = value.lastname;
+            userDb.email = value.email;
+            const res = await userDb.save();
+
+            return res.id;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    deleteUser: async (id) => {
+        if (!id) {
+            throw new Error("id is required to delete user");
+        }
+
+        try {
+            const res = await User.findByIdAndDelete(id);
+            return res;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
     getUserByEmail: async (data) => {
         if (!data.email) {
             throw new Error("please provide an email property");
