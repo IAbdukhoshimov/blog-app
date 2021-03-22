@@ -42,7 +42,11 @@ let postStorage = {
 
     getAll: async () => {
         try {
-            const res = await Post.find();
+            const res = await Post.find().populate({
+                path: "category",
+                model: "Category"
+            });
+
             return res;
         } catch (error) {
             throw new Error(error.message);
