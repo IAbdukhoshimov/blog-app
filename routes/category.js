@@ -3,7 +3,7 @@ const router = express.Router();
 const logger = require("../config/logger");
 
 router.post("/", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("GET category request");
 
     try {
     } catch (error) {
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("GET category request");
 
     try {
     } catch (error) {
@@ -31,7 +31,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("GET category request");
 
     try {
     } catch (error) {
@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("GET category request");
 
     try {
     } catch (error) {
@@ -59,7 +59,7 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("GET category request");
 
     try {
     } catch (error) {
