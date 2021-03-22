@@ -3,6 +3,9 @@ const cfg = require("./config/index");
 const mongoose = require("mongoose");
 const express = require("express");
 
+// routes
+const userRoute = require("./routes/user");
+
 function main() {
     logger.info("Main function is running...");
     const mongoDBUrl =
@@ -35,6 +38,9 @@ function main() {
     let app = express();
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
+
+    // Routers
+    app.use("/users", userRoute);
 
     app.listen(cfg.HTTPPort, () => {
         logger.info(`Express server is running on PORT: ${cfg.HTTPPort}`);

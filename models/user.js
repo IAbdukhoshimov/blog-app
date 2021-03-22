@@ -10,11 +10,11 @@ let UserSchema = new Schema({
         type: String,
         default: uuidv4()
     },
-    firstName: {
+    firstname: {
         type: String,
         required: true
     },
-    lastName: {
+    lastname: {
         type: String,
         required: true
     },
