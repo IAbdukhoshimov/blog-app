@@ -78,7 +78,7 @@ let userStorage = {
         }
 
         try {
-            const res = await User.findByIdAndDelete(id);
+            const res = await User.findOneAndDelete({ id: id });
             return res;
         } catch (error) {
             throw new Error(error.message);
