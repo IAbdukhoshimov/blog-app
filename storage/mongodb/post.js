@@ -36,3 +36,5 @@ let postStorage = {
     update: async (id, data) => {},
     delete: async (id) => {}
 };
+
+module.exports = postStorage;

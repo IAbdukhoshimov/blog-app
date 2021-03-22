@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const logger = require("../config/logger");
+const postStorage = require("../storage/mongodb/post");
 
 router.post("/", async (req, res) => {
     logger.info("POST posts request");
 
     try {
+        const response = await postStorage.create(req.body);
+        return res.status(201).send({ id: respons });
     } catch (error) {
         logger.error("Error while creating post", {
             function: "router.post.post",
@@ -34,6 +37,8 @@ router.get("/:id", async (req, res) => {
     logger.info("GET posts request");
 
     try {
+        const response = await postStorage.get(req.params.id);
+        return res.status(200).send(response);
     } catch (error) {
         logger.error("Error while retreiving post", {
             function: "router.post.get",
