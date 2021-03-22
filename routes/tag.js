@@ -3,12 +3,12 @@ const router = express.Router();
 const logger = require("../config/logger");
 
 router.post("/", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("POST tags request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while creating tag", {
+            function: "router.tag.post",
             error: error
         });
 
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
+        logger.error("Error while retreiving all tag", {
             function: "router.tag.get",
             error: error
         });
@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
+        logger.error("Error while retreiving tag", {
             function: "router.tag.get",
             error: error
         });
@@ -45,12 +45,12 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("PUT tags request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while updating tag", {
+            function: "router.tag.put",
             error: error
         });
 
@@ -59,12 +59,12 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-    logger.info("GET tags request");
+    logger.info("DELETE tags request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while deleting tag", {
+            function: "router.tag.delete",
             error: error
         });
 
