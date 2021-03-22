@@ -31,7 +31,7 @@ let UserSchema = new Schema({
 UserSchema.pre("save", async function (next) {
     let user = this;
 
-    if (user.isModified("password")) {
+    if (!user.isModified("password")) {
         return next();
     }
 
