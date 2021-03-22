@@ -29,7 +29,7 @@ let userStorage = {
 
     getAllUser: async () => {
         try {
-            const response = await User.find().select(["-password", "-_id"]);
+            const response = await User.find().select(["-password"]);
             return response;
         } catch (error) {
             throw new Error(error.message);
@@ -42,10 +42,7 @@ let userStorage = {
         }
 
         try {
-            const user = await User.findOne({ id: id }).select([
-                "-password",
-                "-_id"
-            ]);
+            const user = await User.findOne({ _id: id }).select(["-password"]);
 
             return user;
         } catch (error) {
@@ -60,7 +57,7 @@ let userStorage = {
         }
 
         try {
-            const userDb = await User.findOne({ id: id });
+            const userDb = await User.findOne({ _id: id });
             userDb.firstname = value.firstname;
             userDb.lastname = value.lastname;
             userDb.email = value.email;
@@ -78,7 +75,7 @@ let userStorage = {
         }
 
         try {
-            const res = await User.findOneAndDelete({ id: id });
+            const res = await User.findOneAndDelete({ _id: id });
             return res;
         } catch (error) {
             throw new Error(error.message);

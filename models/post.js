@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const { v4: uuidv4 } = require("uuid");
 
 let PostSchema = new Schema({
-    id: {
+    _id: {
         type: String,
         default: uuidv4()
     },
