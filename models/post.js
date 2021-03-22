@@ -12,6 +12,17 @@ let PostSchema = new Schema({
     },
     body: {
         type: String
+    },
+    category: {
+        type: String
+    },
+    tags: [
+        {
+            type: String
+        }
+    ],
+    author: {
+        type: String
     }
 });
 
