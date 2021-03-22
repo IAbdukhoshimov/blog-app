@@ -2,10 +2,6 @@ const Category = require("../../models/category");
 
 let categoryStorage = {
     createCategory: async (data) => {
-        if (!id) {
-            throw new Error("id is required");
-        }
-
         if (!data.name) {
             throw new Error("name is required to create Category");
         }

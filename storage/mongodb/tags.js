@@ -2,10 +2,6 @@ const Tag = require("../../models/tag");
 
 let tagStorage = {
     createTag: async (data) => {
-        if (!id) {
-            throw new Error("id is required");
-        }
-
         if (!data.name) {
             throw new Error("name is required to create tag");
         }
