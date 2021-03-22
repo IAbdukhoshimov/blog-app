@@ -3,12 +3,12 @@ const router = express.Router();
 const logger = require("../config/logger");
 
 router.post("/", async (req, res) => {
-    logger.info("GET category request");
+    logger.info("POST category request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while creating category", {
+            function: "router.category.post",
             error: error
         });
 
@@ -21,8 +21,8 @@ router.get("/", async (req, res) => {
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while retreivign all category", {
+            function: "router.category.get",
             error: error
         });
 
@@ -35,8 +35,8 @@ router.get("/:id", async (req, res) => {
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while retreiving category", {
+            function: "router.category.get",
             error: error
         });
 
@@ -45,12 +45,12 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-    logger.info("GET category request");
+    logger.info("PUT category request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while updating category", {
+            function: "router.category.put",
             error: error
         });
 
@@ -59,12 +59,12 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-    logger.info("GET category request");
+    logger.info("DELETE category request");
 
     try {
     } catch (error) {
-        logger.error("Error while xyz tag", {
-            function: "router.tag.get",
+        logger.error("Error while deleting category", {
+            function: "router.category.delete",
             error: error
         });
 
