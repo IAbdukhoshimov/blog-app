@@ -8,6 +8,7 @@ const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const categoryRoute = require("./routes/category");
 const tagRoute = require("./routes/tag");
+const postRoute = require("./routes/posts");
 
 function main() {
     logger.info("Main function is running...");
@@ -50,6 +51,7 @@ function main() {
     app.use("/auth", authRoute);
     app.use("/tags", tagRoute);
     app.use("/categories", categoryRoute);
+    app.use("/posts", postRoute);
 
     app.listen(cfg.HTTPPort, () => {
         logger.info(`Express server is running on PORT: ${cfg.HTTPPort}`);

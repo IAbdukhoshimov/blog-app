@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
 
     try {
         const response = await postStorage.create(req.body);
-        return res.status(201).send({ id: respons });
+        return res.status(201).send({ id: response });
     } catch (error) {
         logger.error("Error while creating post", {
             function: "router.post.post",
@@ -76,3 +76,5 @@ router.delete("/:id", async (req, res) => {
         res.status(500).send({ error: error.message });
     }
 });
+
+module.exports = router;
