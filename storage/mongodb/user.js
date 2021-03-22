@@ -1,5 +1,5 @@
 const User = require("../../models/user");
-const UserValidator = require("../../validators/user");
+const { UserValidator, UserUpdateValidator } = require("../../validators/user");
 
 let userStorage = {
     createUser: async (data) => {
@@ -54,7 +54,7 @@ let userStorage = {
     },
 
     updateUser: async (id, data) => {
-        const { value, error } = await UserValidator.validate(data);
+        const { value, error } = await UserUpdateValidator.validate(data);
         if (error) {
             throw new Error(error.message);
         }
