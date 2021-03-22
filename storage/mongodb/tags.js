@@ -66,11 +66,9 @@ let tagStorage = {
             throw new Error("id is required");
         }
 
-        if (!data.name) {
-            throw new Error("name is required to create tag");
-        }
-
         try {
+            await Tag.findOneAndDelete({ id: id });
+            return;
         } catch (error) {
             throw new Error(error.message);
         }
