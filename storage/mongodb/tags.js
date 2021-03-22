@@ -74,3 +74,5 @@ let tagStorage = {
         }
     }
 };
+
+module.exports = tagStorage;
